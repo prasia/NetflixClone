@@ -22,6 +22,8 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        
+        homeFeedTable.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))//gets the table top thing for the first film preview, but this is a placeholder for the future
     }
     
     override func viewDidLayoutSubviews() {
