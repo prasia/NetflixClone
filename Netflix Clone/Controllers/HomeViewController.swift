@@ -23,10 +23,38 @@ class HomeViewController: UIViewController {
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
         
+        configureNavbar()
+        
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: (view.bounds.height)/2)) // the height of the image is half of the total screen height, could also be a constant like 450 or something
         
         homeFeedTable.tableHeaderView = headerView//gets the table top thing for the first film preview, but this is a placeholder for the future
     }
+    
+    /*private func configureNavbar(){
+        
+        var image = UIImage(named: "netflixLogo")
+        image = image?.withRenderingMode(.alwaysOriginal) // makes image always appear as it is, no buttoning
+        navigationItem.leftBarButtonItems = [
+            UIBarButtonItem(image: image, style: .done, target: self, action: nil),
+        ]
+        
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+        ]
+        navigationController?.navigationBar.tintColor = .white
+    }*/
+    private func configureNavbar() {
+           var image = UIImage(named: "netflixLogo")
+           image = image?.withRenderingMode(.alwaysOriginal)
+           navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
+           
+           navigationItem.rightBarButtonItems = [
+               UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+               UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+           ]
+           navigationController?.navigationBar.tintColor = .white
+       }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -56,5 +84,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40 
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let defaultOffset = view.safeAreaInsets.top
+        let offset = scrollView.contentOffset.y + defaultOffset
+        
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
 }
