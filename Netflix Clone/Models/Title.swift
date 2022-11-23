@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct TrendingMoviesResponse: Codable {//Codable makes it compatible with encoder and decoder protocol
-    let results: [Movie]
-    
-    
+struct TrendingTitlesResponse: Codable {//Codable makes it compatible with encoder and decoder protocol
+    let results: [Title]
 }
 
-struct Movie: Codable{//id, media type, original language, original title
+struct Title: Codable{//id, media type, original language, original title
     let id: Int
     let media_type: String? // Question mark makes it optional so it doesn't crash if there isn't one
     let original_title: String?
