@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: (view.bounds.height)/2)) // the height of the image is half of the total screen height, could also be a constant like 450 or something
         
         homeFeedTable.tableHeaderView = headerView//gets the table top thing for the first film preview, but this is a placeholder for the future
+        
+        getTrendMovies()
     }
     
     /*private func configureNavbar(){
@@ -61,6 +63,19 @@ class HomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
+    }
+    
+    
+    private func getTrendMovies(){
+        APICaller.shared.getTrendingMovies { results in
+            switch results{
+                
+            case .success(let movies):
+                print(movies)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
