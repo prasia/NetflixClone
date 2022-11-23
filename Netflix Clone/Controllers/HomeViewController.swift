@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.tableHeaderView = headerView//gets the table top thing for the first film preview, but this is a placeholder for the future
         
-        getTrendMovies()
+        fetchData()
     }
     
     /*private func configureNavbar(){
@@ -66,8 +66,8 @@ class HomeViewController: UIViewController {
     }
     
     
-    private func getTrendMovies(){
-        APICaller.shared.getTrendingMovies { results in
+    private func fetchData(){
+        /*APICaller.shared.getTrendingMovies { results in
             switch results{
                 
             case .success(let movies):
@@ -75,6 +75,15 @@ class HomeViewController: UIViewController {
             case .failure(let error):
                 print(error)
             }
+        }*/
+        /*APICaller.shared.getTrendingTVs { results in
+            //
+        }*/
+        /*APICaller.shared.getUpcomingMovies { _ in
+            //
+        }*/
+        APICaller.shared.getPopularMovies { _ in
+            //
         }
     }
 }
