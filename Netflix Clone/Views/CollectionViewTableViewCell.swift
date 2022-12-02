@@ -11,13 +11,15 @@ class CollectionViewTableViewCell: UITableViewCell {
 
     static let identifier = "CollectionViewTableViewCell"
     
+    private var titles: [Title] = [Title]()
+    
     private let collectionView: UICollectionView = {
         
         let layout = UICollectionViewFlowLayout()// Let you get grid based layout
         layout.itemSize = CGSize(width: 140, height: 200)//customize the size of each grid thingy
         layout.scrollDirection = .horizontal // let the user scroll through the section each horizontally
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
         return collectionView
     }() //returning objects needs the parentheseies
     
@@ -39,17 +41,31 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionView.frame = contentView.bounds// to have it stretch all the way across the cell
         
     }
+    
+    public func configure(with titles: [Title]){
+        self.titles = titles
+        DispatchQueue.main.async {[weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
 }
 
 extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemGreen
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else{
+            return UICollectionViewCell()
+        }
+        
+        guard let model = titles[indexPath.row].poster_path else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: model)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return titles.count
     }
 }
