@@ -26,6 +26,7 @@
 		A44DC852292EE42500599864 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = A44DC851292EE42500599864 /* SDWebImageMapKit */; };
 		A4B3157C293C01050046F4B9 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3157B293C01050046F4B9 /* TitleTableViewCell.swift */; };
 		A4B3157E293C68770046F4B9 /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3157D293C68770046F4B9 /* TitleViewModel.swift */; };
+		A4B31580293D2A010046F4B9 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B3157F293D2A010046F4B9 /* SearchResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		A44DC84C292EDB9300599864 /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		A4B3157B293C01050046F4B9 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		A4B3157D293C68770046F4B9 /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
+		A4B3157F293D2A010046F4B9 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				A44CB94F292AFE7C001C1327 /* UpcomingViewController.swift */,
 				A44CB951292AFEB6001C1327 /* SearchViewController.swift */,
 				A44CB953292AFEE6001C1327 /* DownloadsViewController.swift */,
+				A4B3157F293D2A010046F4B9 /* SearchResultsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				A44CB95D292BFF8E001C1327 /* HeroHeaderUIView.swift in Sources */,
 				A44CB954292AFEE6001C1327 /* DownloadsViewController.swift in Sources */,
 				A44CB935292AFBAF001C1327 /* AppDelegate.swift in Sources */,
+				A4B31580293D2A010046F4B9 /* SearchResultsViewController.swift in Sources */,
 				A44DC849292EB32900599864 /* Extensions.swift in Sources */,
 				A44CB937292AFBAF001C1327 /* SceneDelegate.swift in Sources */,
 				A44CB950292AFE7C001C1327 /* UpcomingViewController.swift in Sources */,
